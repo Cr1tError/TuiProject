@@ -36,7 +36,7 @@ CREATE TABLE trips
 
 CREATE TABLE sold_trips
 (
-    id                    SERIAL PRIMARY KEY                  NOT NULL,
+     id                   SERIAL PRIMARY KEY                  NOT NULL,
      client_id            SERIAL                              NOT NULL,
      trip_id              SERIAL                              NOT NULL,
      departure_date       DATE                                NOT NULL,
