@@ -43,11 +43,7 @@ public class TripController {
     public String createTrip(Trip trip){
         String travelDirection = trip.getTravelDirection();
         Guide guide = guideService.findAll().stream().filter(g -> travelDirection.equals(g.getDescription())).findAny().orElse(null);
-//        Client client=clientService.findAll().stream().findAny().orElse(null);
         trip.setGuide(guide);
-//        trip.setClient(client);
-//        TripId tripId = new TripId(guide.getId(), client.getId());
-//        trip.setId(tripId);
         tripService.saveTrip(trip);
         return "redirect:/trips";
     }

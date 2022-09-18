@@ -1,0 +1,47 @@
+1. Międzynarodowe biuro podróży chce zamówić program wspierający działalność. Program
+powinien umożliwiać:
+ Definiowanie celów podróży
+ Definiowanie wycieczek. Wycieczka ma cel podróży, datę wyjazdu i powrotu, sugerowaną
+cenę oraz przewodnika. Jeden przewodnik może obsługiwać więcej niż jedną wycieczkę
+biura.
+ Definiowanie klientów biura. Klient jest opisany przez imię, nazwisko i numer paszportu.
+ Rezerwowanie wycieczek dla klientów. Klienci mogą negocjować cenę wycieczki, dlatego
+cena sprzedaży może się różnić od ceny sugerowanej.
+2. Zaplanuj strukturę bazy danych dla podanych wymagań i przygotuj polecenia SQL generujące
+tę strukturę.
+3. Napisz następujące zapytania SQL. Kiedy zapytania biorą pod uwagę ramy czasowe
+uwzględnij tylko datę wyjazdu:
+ Który cel podróży został wybrany przez najwięcej osób w danym roku.
+ Który klient nie zamówił wycieczki w danym roku.
+ Średnią cenę oraz sumę całkowitą, za którą sprzedano daną wycieczkę.
+4. Zaimplementuj część funkcjonalności tej aplikacji: zarządzanie klientami biura. Program
+powinien umożliwiać listowanie, dodawanie, edytowanie i usuwanie klientów. Najlepiej, jeśli
+interfejs użytkownika będzie zrealizowany jako Single Page Application. Jako bazy danych
+użyj PostgreSQL. Jako rozwiązanie dołącz kod źródłowy i skrypt umożliwiający zbudowanie i
+uruchomienie aplikacji.
+
+
+Enter point:
+/tui
+
+For guide:
+    /guides - all guides;
+    /guide-create - create new guid
+    /guide-delete/{id}  - delete guide
+    /guide-update/{id}  - update  guide
+
+For trip:
+    /trips   - all  available trips
+    /trip-create - create new trip
+    /trip-delete/{id} - delete trip
+    /trip-update/{id}  - update trip
+
+For client:
+    /client-create    - create new client
+    /client-delete/{id} - delete client
+    /client-update/{id} - update client
+
+ For sold trips
+    /client-purchases/{id} -all purchased by current client
+    /client-purchases/purchase-create/{id} - create new purchase
+    /client-purchases/{cid}/purchase-delete/{id} - delete purchase from current client
