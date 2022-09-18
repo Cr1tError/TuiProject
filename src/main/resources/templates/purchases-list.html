@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Trips</title>
+</head>
+<body>
+<div th:switch="${trips}">
+    <h2 th:case="null">No purchases found!</h2>
+    <div th:case="*">
+        <h2>My trips</h2>
+        <table>
+            <thead>
+            <tr>
+                <th hidden>Id</th>
+                <th>Travel direction</th>
+                <th>Departure Date </th>
+                <th>Arrival Date </th>
+                <th>Guide</th>
+                <th>Price</th>
+                <th>Goal</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="trip : ${trips}">
+                <td th:text="${trip.id}" hidden></td>
+                <td th:text="${trip.travelDirection}"></td>
+                <td th:text="${trip.departureDate}"></td>
+                <td th:text="${trip.arrivalDate}"></td>
+
+                <td th:text="${trip.guide}"></td>
+                <td th:text="${trip.price}"></td>
+                <td th:text="${trip.goal}"></td>
+                <td><a th:href="@{{cid}/purchase-delete/{id}(id=${trip.id}, cid=${trip.clientId})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div> </div>
+    <p><a th:href="@{purchase-create/{id}(id=${clientId})}">Select trip</a></p>
+</div>
+</body>
+</html>

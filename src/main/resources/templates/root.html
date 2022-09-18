@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+<div th:switch="${clients}">
+    <h2 th:case="null">No clients found!</h2>
+    <div th:case="*">
+        <h2>Clients</h2>
+        <table>
+            <thead>
+            <tr>
+                <th hidden>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="client : ${clients}">
+                <td th:text="${client.id}" hidden></td>
+                <td th:text="${client.name}"></td>
+                <td th:text="${client.surname}"></td>
+                <td><a th:href="@{client-update/{id}(id=${client.id})}">Edit</a></td>
+                <td><a th:href="@{client-delete/{id}(id=${client.id})}">Delete</a></td>
+                <td><a th:href="@{client-purchases/{id}(id=${client.id})}">Select</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/client-create">Create clients</a></p>
+</div>
+</body>
+</html>

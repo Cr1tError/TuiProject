@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose your trip</title>
+</head>
+<body>
+<form action="#" th:action="@{/purchase-create}" th:object="${soldTripTo}" method="post">
+
+    <label for="option1">Rome</label>
+    <input type="radio" id="option1" value="Rome" th:field="*{travelDirection}">
+    <label for="option2">Paris</label>
+    <input type="radio" id="option2" value="Paris" th:field="*{travelDirection}">
+    <br>
+    <label for="departureDate" >Departure Date</label>
+    <input type="date" th:field="*{departureDate}" id="departureDate">
+    <br>
+    <label for="arrivalDate" >Arrival Date</label>
+    <input type="date" th:field="*{arrivalDate}" id="arrivalDate">
+    <br>
+    <label for="price">Cost</label>
+    <input type="number" th:field="*{price}" id="price">
+    <br>
+    <label for="goalOption1">Work</label>
+    <input type="radio" id="goalOption1" value="Work" th:field="*{goal}">
+    <label for="goalOption2">Rest</label>
+    <input type="radio" id="goalOption2" value="Rest" th:field="*{goal}">
+    <br>
+    <label  hidden for="clientId" ></label>
+    <input hidden readonly type="number" th:field="*{clientId}" id="clientId" value="${clientId}">
+
+    <input type="submit" value="Choose trip">
+</form>
+</body>
+</html>

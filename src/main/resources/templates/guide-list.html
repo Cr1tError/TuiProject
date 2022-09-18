@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Guides</title>
+</head>
+<body>
+<div th:switch="${guides}">
+    <h2 th:case="null">No guides found!</h2>
+    <div th:case="*">
+        <h2>Guides</h2>
+        <table>
+            <thead>
+            <tr>
+                <th hidden>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Trip direction</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="guide : ${guides}">
+                <td th:text="${guide.id}" hidden></td>
+                <td th:text="${guide.name}"></td>
+                <td th:text="${guide.surname}"></td>
+                <td th:text="${guide.description}"></td>
+                <td><a th:href="@{guide-update/{id}(id=${guide.id})}">Edit</a></td>
+                <td><a th:href="@{guide-delete/{id}(id=${guide.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/guide-create">Create guide</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create trip</title>
+</head>
+<body>
+<form action="#" th:action="@{/trip-update}" th:object="${trip}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="travelDirection">Travel direction</label>
+    <input type="text" th:field="*{travelDirection}" id="travelDirection" placeholder="travel direction">
+    <br/>
+    <label for="price">Price</label>
+    <input type="number" th:field="*{price}" id="price" placeholder="Price">
+    <br/>
+    <input type="submit" value="Update Trip">
+</form>
+</body>
+</html>

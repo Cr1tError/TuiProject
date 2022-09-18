@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create trip</title>
+</head>
+<body>
+<form action="#" th:action="@{/trip-create}" th:object="${trip}" method="post">
+    <label for="option1">Rome</label>
+    <input type="radio" id="option1" value="Rome" th:field="*{travelDirection}">
+    <label for="option2">Paris</label>
+    <input type="radio" id="option2" value="Paris" th:field="*{travelDirection}">
+    <br>
+    <label for="price">Price</label>
+    <input type="number" th:field="*{price}" id="price">
+
+    <input type="submit" value="Create Trip">
+</form>
+</body>
+</html>
